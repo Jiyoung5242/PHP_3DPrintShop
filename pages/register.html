@@ -13,9 +13,8 @@ Licence URI: https://www.os-templates.com/template-terms
 <title>3D Print SHOP</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-<link href="../layout/styles/detail.css" rel="stylesheet" type="text/css" media="all">
 <link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<link href="../layout/styles/detail.css" rel="stylesheet" type="text/css" media="all">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
 <body id="top">
@@ -103,110 +102,94 @@ Licence URI: https://www.os-templates.com/template-terms
 <div class="wrapper row2">
   <section class="hoc container clear"> 
     <!-- ################################################################################################ -->
-    <div class="center btmspace-8">
-      <h6 class="heading underline font-x2">Search Models</h6>
-    </div>
-    <div class="row g-3">
-        <div class="col-md-2"></div>
+ 
+
+    <div class="row justify-content-center">
         <div class="col-md-8">
-        <h2>Search Conditions</h2>
+        <div class="card">
+        <header class="card-header">
+            <a href="" class="float-right btn btn-outline-orange mt-1">Log in</a>
+            <h4 class="card-title mt-2">Sign up</h4>
+        </header>
+        <article class="card-body">
+        <form>
+            <div class="form-row">
+                <div class="col form-group">
+                    <label>First name </label>   
+                      <input type="text" class="form-control" placeholder="">
+                </div> <!-- form-group end.// -->
+                <div class="col form-group">
+                    <label>Last name</label>
+                      <input type="text" class="form-control" placeholder=" ">
+                </div> <!-- form-group end.// -->
+            </div> <!-- form-row end.// -->
+            <div class="form-group">
+                <label>Email address</label>
+                <input type="email" class="form-control" placeholder="">
+                <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div> <!-- form-group end.// -->
+            <div class="form-group">
+                <label>Phone Number</label>
+                <input type="tel" class="form-control" placeholder="">
+                <small class="form-text text-muted">We'll never share your phone number with anyone else.</small>
+            </div> <!-- form-group end.// -->
+            <!--<div class="form-group">
+                    <label class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="gender" value="option1">
+                  <span class="form-check-label"> Male </span>
+                </label>
+                <label class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="gender" value="option2">
+                  <span class="form-check-label"> Female</span>
+                </label>
+            </div>  form-group end.// -->
+            <div class="form-group">
+                <label>Address</label>
+                <input type="text" class="form-control" placeholder="">
+                <small class="form-text text-muted">We'll never share your address with anyone else.</small>
+            </div> <!-- form-group end.// -->
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>City</label>
+                  <input type="text" class="form-control">
+                </div> <!-- form-group end.// -->
+                <div class="form-group col-md-6">
+                  <label>Province</label>
+                  <select id="inputState" class="form-control">
+                    <option> Choose...</option>
+                      <option>Quebec</option>
+                      <option>British Columbia</option>
+                      <option selected="">Ontario</option>
+                      <option>Alberta</option>
+                      <option>Manitoba</option>
+                  </select>
+                </div> <!-- form-group end.// -->
+            </div> <!-- form-row.// -->
+            <div class="form-group">
+                <label>Postal Code</label>
+                <input type="text" class="form-control" placeholder="">
+            </div> <!-- form-group end.// -->
+            <div class="form-group">
+                <label>Create password</label>
+                <input class="form-control" type="password">
+            </div> <!-- form-group end.// -->  
+            <p></p>
+            <div class="form-group">
+                <button type="submit" class="btn btn-orange btn-block"> Sing Up  </button>
+            </div> <!-- form-group// -->      
+            <small class="text-muted">By clicking the 'Sign Up' button, you confirm that you accept our <br> Terms of use and Privacy Policy.</small>                                          
+        </form>
+        </article> <!-- card-body end .// -->
+        <div class="border-top card-body text-center">Have an account? <a href="">Log In</a></div>
+        </div> <!-- card.// -->
+        </div> <!-- col.//-->
         
-        <ul class="nospace group latest">
-            <li class="first">
-                
-                <div class="row g-3">
-                    <div class="col-sm-5">
-                        <label for="Category" class="form-label">Country</label>
-                        <select class="form-select" id="category">
-                            <option value="">Choose..</option>
-                            <option value="">Beauty</option>
-                            <option value="">Toy</option>
-                        </select>
-                    </div>
-                    <div class="col-sm-4">
-                        <label for="Color" class="form-label">Colour</label>
-                        <select class="form-select" id="color">
-                            <option value="">Choose..</option>
-                            <option value="">Red</option>
-                            <option value="">Blue</option>
-                        </select>
-                    </div>
-                    <div class="col-sm-3">
-                        <label for="Price" class="form-label">Size</label>
-                        <select class="form-select" id="price">
-                            <option value="">Choose..</option>
-                            <option value="">small</option>
-                            <option value="">middle</option>
-                            <option value="">large</option>
-                        </select>
-                    </div>
-                    <div col="col-12">
-                        <label for="modelName" class="form-label">Model Name</label>
-                        <input type="text" class="form-control" id="modelName">
-                    </div>
-                    <div class="col-12 center">                        
-                        <a href="#" class="btn btn-outline-orange">Reset</a>
-                        <a href="#" class="btn btn-orange">Search</a>
-                        
-                    </div>
-                </div>
-                
-            </li>
-        </ul>
-        <p></p>
-        <h2>Result Models</h2>
+        </div> <!-- row.//-->
         
-        <ul class="nospace group latest">
-            <li class="first">
-                
-                <table class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></th>
-                        <th scope="col">#</th>
-                        <th scope="col">Model Name</th>
-                        <th scope="col">Colour</th>
-                        <th scope="col">Size</th>
-                        <th scope="col">Price</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-                        <th scope="row">1</th>
-                        <td>Headphone Stand</td>
-                        <td>White</td>
-                        <td>Middle</td>
-                        <td>$20</td>
-                      </tr>
-                      <tr>
-                        <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-                        <th scope="row">2</th>
-                        <td>Earings</td>
-                        <td>Gold</td>
-                        <td>Small</td>
-                        <td>$30</td>
-                      </tr>
-                      <tr>
-                        <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
-                        <th scope="row">3</th>
-                        <td>Cube</td>
-                        <td>Red</td>
-                        <td>Large</td>
-                        <td>$40</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <div class="col-12 center">                        
-                    <a href="#" class="btn btn-orange my-2">Add Cart</a>
-                </div>
-            </li>
-        </ul>
         
-     </div> 
-    </div>
-    <div class="col-md-2"></div>  
-    <footer class="center"><a class="btn" href="#">Bibendum eget hendrerit</a></footer>
+
+
+
     <!-- ################################################################################################ -->
   </section>
 </div>
