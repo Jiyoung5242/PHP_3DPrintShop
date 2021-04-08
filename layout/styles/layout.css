@@ -15,10 +15,10 @@ File: Layout CSS
 /* Rows
 --------------------------------------------------------------------------------------------------------------- */
 .row0{padding:80px 0 0 0;}
-.row1, .row1 a{}
+.row1, .row1 a{text-decoration: none;}
 .row2, .row2 a{}
 .row3, .row3 a{}
-.row4, .row4 a{}
+.row4, .row4 a{color: white}
 .row5, .row5 a{}
 
 
@@ -316,7 +316,7 @@ input:focus, textarea:focus, *:required:focus{border-color:#DC8E47;}
 
 /* Rows */
 .row0, .row0 a{color:#FFFFFF;}
-.row1, .row1 a{}
+.row1, .row1 a{text-decoration: none;}
 .row2{color:#474747; background-color:#F4F4F4;}
 .row3{color:#474747; background-color:#FFFFFF;}
 .row4{color:#C1C2C4; background-color:#1A1914;}
