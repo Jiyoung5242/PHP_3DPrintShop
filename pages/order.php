@@ -106,12 +106,6 @@ echo '</div>';
 
 // 요청사항
 echo '<br/><br/>';
-    echo '<form action="orderProc.php" method="post">';
-    echo '<div class="col form-group">';
-    echo '<label>shipping Instructions</label>';
-    echo '<input class="form-control" type="text" name="shippingInstructions" id="shippingInstructions" value="" size="22"/>';
-    echo '</div>';
-
     echo '<div class="col form-group">';
     echo '<label>Recipient Name</label>';
     echo '<input class="form-control" type="text" name="recipientName" id="recipientName" value="" size="22"/>'; 
@@ -125,6 +119,12 @@ echo '<br/><br/>';
     echo '<div class="col form-group">';
     echo '<label>Ship Address</label>';
     echo '<input class="form-control" type="text" name="shipAddress" id="shipAddress" value="" size="22"/>';
+    echo '</div>';
+
+    echo '<form action="orderProc.php" method="post">';
+    echo '<div class="col form-group">';
+    echo '<label>shipping Instructions</label>';
+    echo '<input class="form-control" type="text" name="shippingInstructions" id="shippingInstructions" value="" size="22"/>';
     echo '</div>';
 
     echo '<div class="col form-group">';
