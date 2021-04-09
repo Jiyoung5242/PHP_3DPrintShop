@@ -114,9 +114,9 @@ Licence URI: https://www.os-templates.com/template-terms
     </div>
     <ul class="nospace group overview btmspace-80">
       <li class="one_quarter">
-        <article><a href="./pages/searchModel.html"><i class="fas fa-eraser"></i></a>
-          <h6 class="heading"><a href="./pages/searchModel.html">Search 3D Models</a></h6>
-          <footer><a href="./pages/searchModel.html">View Details &raquo;</a></footer>
+        <article><a href="./pages/searchModel.php"><i class="fas fa-eraser"></i></a>
+          <h6 class="heading"><a href="./pages/searchModel.php">Search 3D Models</a></h6>
+          <footer><a href="./pages/searchModel.php">View Details &raquo;</a></footer>
         </article>
       </li>
       <li class="one_quarter">
