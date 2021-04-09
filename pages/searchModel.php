@@ -18,11 +18,11 @@ if(isset($_POST['submit'])){
       
       echo "error occured while connectiing with DB".mysqli_connect_errno();
   }else{
-      echo "SUCCESS !!!!!!! ";
+      //echo "SUCCESS !!!!!!! ";
   }
 
   $sql = "SELECT * FROM 3dprintshop.model WHERE ModelName LIKE '%" . $modelname. "%'";
-  echo "sql::::" .$sql;
+  //echo "sql::::" .$sql;
 
 }
 
@@ -36,14 +36,35 @@ if(isset($_POST['addCart'])){
     if(isset($_POST['modelCheck'])){
 
       foreach ($_POST['modelCheck'] as $key => $value) {
-        $insertSql = "INSERT INTO 3dprintshop.cart (ModelID, Email, Quantity, Cost) VALUES (".$value.", '".$email."', 1, 0)";
-        echo "INSERT ===".$insertSql;
-        if ($conn->query($insertSql) === TRUE) {
-          echo "New record created successfully";
+        echo "CHECK MODEL ID = ".$value;
+        //search cart
+        $searchCart = "SELECT * FROM 3dprintshop.cart WHERE ModelID ='".$value."' AND Email = '".$email."'";
+        $retCart = mysqli_query($conn, $searchCart); 
+        if (mysqli_num_rows($retCart) != 0){
+          $quantity = mysqli_fetch_assoc($retCart);
+          $updateQuantity = $quantity['Quantity'] + 1;
+
+          //$updateSql = "UPDATE 3dprintshop.cart SET Quantity = '".$quantity['Quantity']+1 ."' WHERE CartID = '".$quantity['CartID'] ."'";
+          $updateSql = "UPDATE 3dprintshop.cart SET Quantity = '".$updateQuantity."' WHERE CartID = '".$quantity['CartID']."'";
           
-        } else {
-          echo "Error: " . $insertSql . "<br>" . $conn->error;
+          echo "updateSql = ".$updateSql;
+          if ($conn->query($updateSql) === TRUE) {
+            echo "Record updated successfully";
+            
+          } else {
+            echo "Error: " . $updateSql . "<br>" . $conn->error;
+          }
+        }else{
+          $insertSql = "INSERT INTO 3dprintshop.cart (ModelID, Email, Quantity, Cost) VALUES (".$value.", '".$email."', 1, 0)";
+          echo "INSERT ===".$insertSql;
+          if ($conn->query($insertSql) === TRUE) {
+            echo "New record created successfully";
+            
+          } else {
+            echo "Error: " . $insertSql . "<br>" . $conn->error;
+          }
         }
+        
       }
       header("location: myCart.php");
     }
