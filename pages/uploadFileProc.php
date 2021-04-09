@@ -3,7 +3,7 @@
     session_start();   
     $AccountID = $_SESSION['AccountID'];
     $allowedExts = array("gif", "jpeg", "jpg", "png");
-    $uploads_dir = $_SERVER['DOCUMENT_ROOT'] . '/upload';
+    $uploads_dir = 'C:\xampp\htdocs\PHP_3DPrintShop\pages\upload';
 
     $message = '';
     if (isset($_FILES)) {
@@ -49,5 +49,5 @@
     } else {
         $message = "File is not selected";
     }
-    print "<script language=javascript> alert('$message'); location.replace('../pages/uploadFile.php'); </script>";
+    print "<script language=javascript> alert('$message'); location.replace('./uploadFile.php'); </script>";
 ?>
