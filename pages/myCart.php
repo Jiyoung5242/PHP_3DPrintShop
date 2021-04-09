@@ -90,9 +90,10 @@ Licence URI: https://www.os-templates.com/template-terms
 
                     <?php
                       
-                      $cartResult = mysql_query($selectCart);
+                      $cartResult = mysqli_query($conn,$selectCart);
                       $total = 0;  
-                      while($row = mysql_fetch_array($cartResult)) {
+                      while($row = mysqli_fetch_assoc($cartResult)) {
+                        //mysql_fetch_array
                         $total = $total + $row['Cost'];
                     ?>
                     <tr>

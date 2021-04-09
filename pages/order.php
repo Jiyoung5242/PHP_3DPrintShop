@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    $AccountID = $_SESSION['AccountID'];
+    if(!$AccountID){
+        print "<script language=javascript> alert('You need to Login first'); location.replace('../pages/login.php'); </script>";
+    }
+?>
+
 <!DOCTYPE html><!--없어서추가 지수가 추가함-->
 <html lang="">
 <?php include "./header.html" ?>
@@ -26,6 +34,8 @@
 
 
 <?php
+//echo 'a: ' . $_SESSION['AccountID'];
+//echo 'e: ' . $_SESSION['email'];
 
 // 파라미터 확인
 $cartIds_string = $_GET["cartIds"];
@@ -106,6 +116,7 @@ echo '</div>';
 
 // 요청사항
 echo '<br/><br/>';
+echo '<form action="orderProc.php" method="post">';
     echo '<div class="col form-group">';
     echo '<label>Recipient Name</label>';
     echo '<input class="form-control" type="text" name="recipientName" id="recipientName" value="" size="22"/>'; 
@@ -121,7 +132,6 @@ echo '<br/><br/>';
     echo '<input class="form-control" type="text" name="shipAddress" id="shipAddress" value="" size="22"/>';
     echo '</div>';
 
-    echo '<form action="orderProc.php" method="post">';
     echo '<div class="col form-group">';
     echo '<label>shipping Instructions</label>';
     echo '<input class="form-control" type="text" name="shippingInstructions" id="shippingInstructions" value="" size="22"/>';

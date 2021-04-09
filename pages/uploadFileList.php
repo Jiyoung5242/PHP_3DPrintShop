@@ -20,30 +20,42 @@
 
     <?php include "./header_menu.html" ?>
      <div class="wrapper row2">
+        
         <section class="hoc container clear">
-            <!-- ################################################################################################ -->
             <div class="center btmspace-8">
-                <h6 class="heading underline font-x2">Upload File</h6>
+                <h6 class="heading underline font-x2">File List</h6>
             </div>
 
             <div class="Aligner">
-                <form action="uploadFileProc.php" method="post" enctype="multipart/form-data">
-                    Upload File
-                    <br/>
-                    <input type="file" name="file" id="file" value="Search File"/>
-                    <input type="submit" name="submit" value="Upload your file"/>
-                </form>
+                <?php
+
+                $conn = mysqli_connect("localhost","root", "","3dprintshop");
+                if (mysqli_connect_errno()) {
+                    echo "error occured while connectiing with DB" . mysqli_connect_errno();
+                }
+
+                $sql = "SELECT FileID, FileName, FileCreatedDate FROM File where AccountID = " . $AccountID;
+                $result = mysqli_query($conn, $sql);
+                if (mysqli_num_rows($result) > 0) {
+                    echo "<table border=\"1\">";
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<th>FileName</th>
+                              <th>FileCreatedDate</th>
+                                <tr>
+                                    <td>" . $row["FileName"] . "<br/><a href=\"./deleteFileProc.php?id=" .
+                            $row["FileID"] . "&name=" . $row['FileName'] . "\">Delete</a>" . "</td>
+                                    <td>" . $row["FileCreatedDate"] . "</td>
+                                </tr>";
+                    }
+                    echo "</table>";
+                } else {
+                    echo "데이터가 없습니다.";
+                }
+                mysqli_close($conn); // 디비 접속 닫기
+
+                ?>
             </div>
 
-            <!--            <form action="upload_file.php" method="post" enctype="multipart/form-data">-->
-            <!--                <label for="file">Filename:</label>-->
-            <!--                <input type="file" name="file" id="file"><br>-->
-            <!--                <input type="submit" name="submit" value="Submit">-->
-            <!--            </form>-->
-
-            <!--    <div class="col-md-2"></div>  -->
-            <!--    <footer class="center"><a class="btn" href="#">Bibendum eget hendrerit</a></footer>-->
-            <!-- ################################################################################################ -->
         </section>
     </div>
 </div>

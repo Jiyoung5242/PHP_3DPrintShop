@@ -193,11 +193,14 @@ Licence URI: https://www.os-templates.com/template-terms
                     <tbody>
                     <?php
                       if(isset($_POST['submit'])){
-                        $result = mysql_query($sql);
+                        $result = mysqli_query($conn,$sql);
+                        //$result = mysql_query( $sql);
                         if($result === FALSE) { 
                           die(mysql_error()); // TODO: better error handling
                         }else{
-                      while($row = mysql_fetch_array($result)) {
+                          //mysql_fetch_array
+                          //$row = mysqli_fetch_assoc($result)
+                      while($row = mysqli_fetch_assoc($result)) {
                     ?>
                       <tr>
                         <td><input class="form-check-input" type="checkbox" value="<?php echo $row['ModelID'] ?>" name="modelCheck[]"></td>

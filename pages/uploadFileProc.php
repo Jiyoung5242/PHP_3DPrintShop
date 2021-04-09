@@ -1,4 +1,7 @@
 <?php
+
+    session_start();   
+    $AccountID = $_SESSION['AccountID'];
     $allowedExts = array("gif", "jpeg", "jpg", "png");
     $uploads_dir = $_SERVER['DOCUMENT_ROOT'] . '/upload';
 
@@ -28,7 +31,7 @@
 
                     //TODO: Change Login User's AccountID
                     include("connection.php");
-                    $sql = "INSERT INTO File (FileName, FileData, AccountID) VALUES ('$name', '$extension', 1)";
+                    $sql = "INSERT INTO File (FileName, FileData, AccountID) VALUES ('$name', '$extension', $AccountID)";
 
                     if ($conn->query($sql) === TRUE) {
                         move_uploaded_file($tmp_name, "$uploads_dir/" . $name);

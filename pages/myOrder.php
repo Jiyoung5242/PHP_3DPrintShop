@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    $AccountID = $_SESSION['AccountID'];
+    if(!$AccountID){
+        print "<script language=javascript> alert('You need to Login first'); location.replace('../pages/login.php'); </script>";
+    }
+?>
 <!DOCTYPE html>
 
 <html lang="">
@@ -39,7 +46,7 @@
                     echo "error occured while connectiing with DB" . mysqli_connect_errno();
                 }
 
-                $sql1 = "select * from `Order`";
+                $sql1 = "select * from `Order` where AccountID = " . $AccountID;
                 $result = mysqli_query($conn, $sql1);
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
