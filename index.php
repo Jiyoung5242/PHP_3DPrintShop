@@ -29,8 +29,38 @@ Licence URI: https://www.os-templates.com/template-terms
 
 
 <div class="bgded overlay" style="background-image:url('/php_3dprintshop/images/backgrounds/main_image.jpg');"> 
-<?php include "./pages/topbar.php" ?>
-<?php include "./pages/header_menu.html" ?>
+<?php include "./pages/topbar.php" ?> 
+ <div class="wrapper row1">
+    <header id="header" class="hoc clear"> 
+      <div id="logo" class="fl_left">
+        <h1><a href="./index.php">3D Print SHOP</a></h1>
+      </div>
+      <nav id="mainav" class="fl_right">
+        <ul class="clear">
+          <li><a href="./index.php">Home</a></li>
+          <li><a class="drop" href="./pages/searchModel.php">3D Models</a>
+          </li>
+
+          <li><a href="./pages/uploadFile.php">My Files</a> </li>
+
+         <!-- <li><a href="#">Orders</a>
+            <ul>
+              <li><a href="/php_3dprintshop/pages/order.php">order</a></li>
+              <li><a href="/php_3dprintshop/pages/orderDetail.php">Order Detail</a></li>
+            </ul>
+          </li>-->
+
+
+          <li><a href="./pages/myProfile.php">My Account</a>
+            <ul>
+              <li><a href="./pages/myCart.php">My Cart</a></li>
+              <li><a href="./pages/uploadFileList.php">My Files</a></li>
+              <li><a href="./pages/myOrder.php">My Orders</a></li>
+            </ul>
+          </li>
+      </nav>
+    </header>
+  </div>
   <!-- ################################################################################################ -->
   <!-- ################################################################################################ -->
   <!-- ################################################################################################ -->
