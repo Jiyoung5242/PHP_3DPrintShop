@@ -102,7 +102,7 @@ CREATE TABLE `OrderItem` (
 
 CREATE TABLE `Cart` (
   `CartID` int NOT NULL AUTO_INCREMENT,
-  `Email` varchar(50) UNIQUE,
+  `Email` varchar(50),
   `ModelID` int,
   `Quantity` int,
   `Cost` float,
