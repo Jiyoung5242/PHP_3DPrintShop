@@ -117,7 +117,7 @@ Licence URI: https://www.os-templates.com/template-terms
             </div> <!-- form-group end.// -->
             <div class="form-group">
                 <label>Password</label>
-                <input type="tel" class="form-control" placeholder="" name="password">
+                <input type="password" class="form-control" placeholder="" name="password">
             </div> 
             <div class="form-group">
               <input type="checkbox" name="keep" style="display: inline !important"><label>Remember me</label>
