@@ -12,6 +12,7 @@
       <div class="fl_right"> 
         <!-- ################################################################################################ -->
         <ul class="nospace">
+          <li><div id="welcome" style="<?php if($_SESSION['email'] != "") { ?> display:block; <?php } ?> "><?php  echo $_SESSION['email'];  ?></div></li>
           <li><a href="/php_3dprintshop/index.php"><i class="fas fa-home"></i></a></li>
           <li><a href="/php_3dprintshop/pages/logout.php" title="Logout"><i class="fas fa-sign-out-alt"></i></a></li>
           <li><a href="/php_3dprintshop/pages/login.php" title="Login"><i class="fas fa-sign-in-alt"></i></a></li>
