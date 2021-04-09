@@ -40,13 +40,17 @@
 // 파라미터 확인
 $cartIds_string = $_GET["cartIds"];
 if (empty($cartIds_string)){
-    echo "plz, add cartIds parameter";
+    print "<script language=javascript> alert('plz, add cartIds parameter'); location.replace('../pages/myCart.php'); </script>";
+    exit;
 }
 
 // 파라미터 배열 확인
 $cartIds = explode(",",$cartIds_string);
 if (empty($cartIds)){
-    echo "cartIds has wrong format";
+    //echo "cartIds has wrong format";
+    print "<script language=javascript> alert('cartIds has wrong format'); location.replace('../pages/myCart.php'); </script>";
+    
+    exit;
 }
 
 // 테이블 생성

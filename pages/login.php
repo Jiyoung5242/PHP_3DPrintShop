@@ -5,7 +5,7 @@
     session_start();
 
     if(logged_in()){
-      print "<script language=javascript> alert('LOGIN SUCCESS'); location.replace('../index.html'); </script>";
+      print "<script language=javascript> alert('You already Login'); location.replace('../index.php'); </script>";
     
       //header("location:../index.php");
       exit;
@@ -50,7 +50,7 @@
               }
               echo "OKOKOK";
               //header("location: ../index.php");
-              print "<script language=javascript> alert('LOGIN SUCCESS'); location.replace('../index.html'); </script>";
+              print "<script language=javascript> alert('LOGIN SUCCESS'); location.replace('../index.php'); </script>";
     
             }
 			
