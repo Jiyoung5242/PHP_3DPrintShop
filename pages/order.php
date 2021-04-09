@@ -137,7 +137,7 @@ echo '<form action="orderProc.php" method="post">';
     echo '</div>';
 
     echo '<div class="col form-group">';
-    echo '<label>shipping Instructions</label>';
+    echo '<label>Shipping Instructions</label>';
     echo '<input class="form-control" type="text" name="shippingInstructions" id="shippingInstructions" value="" size="22"/>';
     echo '</div>';
 
