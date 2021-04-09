@@ -139,7 +139,7 @@ Licence URI: https://www.os-templates.com/template-terms
             </div> <!-- form-group end.// -->  
             <p></p>
             <div class="form-group">
-                <button type="submit" class="btn btn-orange btn-block" name="submit"> Sing Up  </button>
+                <button type="submit" class="btn btn-orange btn-block" name="submit"> Sign Up  </button>
             </div> <!-- form-group// -->      
             <small class="text-muted">By clicking the 'Sign Up' button, you confirm that you accept our <br> Terms of use and Privacy Policy.</small>                                          
         </form>
