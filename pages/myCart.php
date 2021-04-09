@@ -16,6 +16,13 @@ if(isset($_POST['submit'])){
   //echo "Cart ID = ".$cartid;
 }
 
+if(isset($_POST['continue'])){
+  
+  header("location:searchModel.php");
+  //echo "Cart ID = ".$cartid;
+}
+
+
 /*
 if(isset($_POST['modelCheck'])){
 
@@ -80,14 +87,11 @@ Licence URI: https://www.os-templates.com/template-terms
                     <tr>
                         <th colspan="2">Model</th>
                         <th>Quantity</th>
-                        <th class="text-center">Price</th>
-                        <th class="text-center">Total</th>
+                        <th class="text-center">Price($)</th>
                         <th> </th>
                     </tr>
                 </thead>
                 <tbody>
-                    
-
                     <?php
                       
                       $cartResult = mysqli_query($conn,$selectCart);
@@ -97,9 +101,9 @@ Licence URI: https://www.os-templates.com/template-terms
                         $total = $total + $row['Cost'];
                     ?>
                     <tr>
-                        <input type="hidden" name="cartid[]" value="<?php echo $row['CartID'] ?>">
+                        
                         <td class="col-sm-2 col_md-1">
-  
+                        <input type="hidden" name="cartid[]" value="<?php echo $row['CartID'] ?>">
                             <img id="imageSize" src="../images/model/<?php echo $row['ModelImage'] ?>.jpg">
       
                         </td>
@@ -111,10 +115,9 @@ Licence URI: https://www.os-templates.com/template-terms
                         <td class="col-sm-1 col-md-1" style="text-align: center">
                         <input type="number" class="form-control" name="inputQuantity[]" id="inputQuantity" value="<?php echo $row['Quantity'] ?>">
                         </td>
-                        <td class="col-sm-1 col-md-1 text-center"><strong>$<div name="cost[]" id="cost"><?php echo $row['Cost'] ?></div></strong></td>
-                        <td class="col-sm-1 col-md-1 text-center"><strong>$<div id="subtotal"> <?php echo $row['Quantity'] * $row['Cost']?></div></strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong><div name="cost[]" id="cost"><?php echo $row['Cost'] ?></div></strong></td>
                         <td class="col-sm-1 col-md-1">
-                        <button type="button" class="btn btn-orange">Remove
+                        <a formmethod="GET" href="./deleteCart.php?cartid=<?php echo $row['CartID'] ?>" class="btn btn-outline-orange">Remove</a>
                         </button></td>
                         </tr>
                         <?php 
@@ -123,19 +126,11 @@ Licence URI: https://www.os-templates.com/template-terms
 
                       ?>
                     
-
-                    <tr>
-                        <td colspan="2">   </td>
-                        <td>   </td>
-                        <td>   </td>
-                        <td><h3>Total</h3></td>
-                        <td class="text-right"><h3><strong>$<?php echo $total ?></strong></h3></td>
-                    </tr>
                     <tr>
                         <td>   </td>
                         <td>   </td>
-                        <td colspan="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button type="button" class="btn btn-outline-orange">Continue Shopping
+                        <td colspan="2">
+                        <button type="submit" class="btn btn-outline-orange" name="continue">Continue Shopping
                         </button></td>
                         <td>
                         <button type="submit" class="btn btn-orange" name="submit">

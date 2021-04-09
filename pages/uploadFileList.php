@@ -6,7 +6,6 @@
     }
 ?>
 <!DOCTYPE html>
--->
 <html lang="">
 <?php include "./header.html" ?>
 <body id="top">
@@ -49,7 +48,7 @@
                     }
                     echo "</table>";
                 } else {
-                    echo "데이터가 없습니다.";
+                    echo "No data exsit";
                 }
                 mysqli_close($conn); // 디비 접속 닫기
 
