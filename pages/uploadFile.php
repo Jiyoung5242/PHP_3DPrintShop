@@ -6,7 +6,7 @@
     }
 ?>
 <!DOCTYPE html>
--->
+
 <html lang="">
 <?php include "./header.html" ?>
 <body id="top">

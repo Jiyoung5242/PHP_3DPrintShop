@@ -5,7 +5,7 @@
 include("connection.php");
 session_start();
 if(isset($_SESSION['email'])){
-  echo "SESSION email ==".$_SESSION['email'];
+  //echo "SESSION email ==".$_SESSION['email'];
 }
 if(isset($_POST['submit'])){
   $category = $_POST["category"];
