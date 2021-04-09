@@ -30,22 +30,15 @@ Licence URI: https://www.os-templates.com/template-terms
 -->
 <html lang="">
 <!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
-<head>
-<title>3D Print SHOP</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
-<link href="../layout/styles/detail.css" rel="stylesheet" type="text/css" media="all">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-</head>
+<?php include "./header.html" ?>
+
 <body id="top">
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- Top Background Image Wrapper -->
-<?php 
-    include('partial/header.php')
-?>
+
+<div class="bgded overlay" style="background-image:url('/php_3dprintshop/images/backgrounds/main_image.jpg');"> 
+
+<?php include "./topbar.html" ?>
+
+<?php include "./header_menu.html" ?>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
