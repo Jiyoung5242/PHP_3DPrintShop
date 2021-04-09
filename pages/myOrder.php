@@ -107,7 +107,7 @@
   </section>
 </div>
 
-<?php include "./footer.html" ?>
+<?php include "./partial/footer.php" ?>
 <!-- JAVASCRIPTS -->
 <script src="layout/scripts/jquery.min.js"></script>
 <script src="layout/scripts/jquery.backtotop.js"></script>

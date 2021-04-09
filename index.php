@@ -39,7 +39,7 @@ Licence URI: https://www.os-templates.com/template-terms
     <article class="center">
       <h3 class="heading underline">Imagination into Reality</h3>
       <p>Imagination into reality, whatever you imagine, you'll see more than just your imagination </p>
-      <footer><a class="btn" href="#">Whatever you can imagine, it goes beyond your Imagination</a></footer>
+      <footer><a class="btn" >Whatever you can imagine, it goes beyond your Imagination</a></footer>
     </article>
     <!-- ################################################################################################ -->
   </div>
@@ -58,27 +58,27 @@ Licence URI: https://www.os-templates.com/template-terms
     </div>
     <ul class="nospace group overview btmspace-80">
       <li class="one_quarter">
-        <article><a href="#"><i class="fas fa-eraser"></i></a>
+        <article><a href="./pages/searchModel.html"><i class="fas fa-eraser"></i></a>
           <h6 class="heading"><a href="./pages/searchModel.html">Search 3D Models</a></h6>
-          <footer><a href="#">View Details &raquo;</a></footer>
+          <footer><a href="./pages/searchModel.html">View Details &raquo;</a></footer>
         </article>
       </li>
       <li class="one_quarter">
-        <article><a href="#"><i class="fas fa-cut"></i></a>
-          <h6 class="heading"><a href="#">Upload my files</a></h6>
-          <footer><a href="#">View Details &raquo;</a></footer>
+        <article><a href="./pages/uploadFile.php"><i class="fas fa-cut"></i></a>
+          <h6 class="heading"><a href="./pages/uploadFile.php">Upload my files</a></h6>
+          <footer><a href="./pages/uploadFile.php">View Details &raquo;</a></footer>
         </article>
       </li>
       <li class="one_quarter">
-        <article><a href="#"><i class="fas fa-hand-holding-heart"></i></a>
-          <h6 class="heading"><a href="#">My orders</a></h6>
-          <footer><a href="#">View Details &raquo;</a></footer>
+        <article><a href="./pages/myCart.php"><i class="fas fa-hand-holding-heart"></i></a>
+          <h6 class="heading"><a href="./pages/myCart.php">My orders</a></h6>
+          <footer><a href="./pages/myCart.php">View Details &raquo;</a></footer>
         </article>
       </li>
       <li class="one_quarter">
-        <article><a href="#"><i class="fas fa-rocket"></i></a>
-          <h6 class="heading"><a href="#">My Account</a></h6>
-          <footer><a href="#">View Details &raquo;</a></footer>
+        <article><a href="./pages/myProfile.php"><i class="fas fa-rocket"></i></a>
+          <h6 class="heading"><a href="./pages/myProfile.php">My Account</a></h6>
+          <footer><a href="./pages/myProfile.php">View Details &raquo;</a></footer>
         </article>
       </li>
     </ul>
