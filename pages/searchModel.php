@@ -66,7 +66,7 @@ if(isset($_POST['addCart'])){
         }
         
       }
-      header("location: myCart.php");
+      //header("location: myCart.php");
     }
   }
     //echo "modelCheck = " .$checkList;

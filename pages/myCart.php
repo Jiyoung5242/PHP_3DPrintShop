@@ -113,7 +113,7 @@ Licence URI: https://www.os-templates.com/template-terms
                             <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
                         </td>
                         <td class="col-sm-1 col-md-1" style="text-align: center">
-                        <input type="number" class="form-control" name="inputQuantity[]" id="inputQuantity" value="<?php echo $row['Quantity'] ?>">
+                        <input disabled type="number" class="form-control" name="inputQuantity[]" id="inputQuantity" value="<?php echo $row['Quantity'] ?>">
                         </td>
                         <td class="col-sm-1 col-md-1 text-center"><strong><div name="cost[]" id="cost"><?php echo $row['Cost'] ?></div></strong></td>
                         <td class="col-sm-1 col-md-1">
