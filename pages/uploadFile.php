@@ -28,9 +28,11 @@
 
             <div class="Aligner">
                 <form action="uploadFileProc.php" method="post" enctype="multipart/form-data">
-                    Upload File
+                   <b>Upload File</b>
+                   <br/>
                     <br/>
                     <input type="file" name="file" id="file" value="Search File"/>
+                    </br>
                     <input type="submit" name="submit" value="Upload your file"/>
                 </form>
             </div>
