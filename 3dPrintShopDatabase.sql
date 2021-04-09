@@ -9,6 +9,8 @@ CREATE TABLE `Colour` (
 );
 
 INSERT INTO Colour VALUES ("Red", 100);
+INSERT INTO Colour VALUES ("Blue", 100);
+INSERT INTO Colour VALUES ("Yellow", 100);
 
 CREATE TABLE `Discount` (
   `DiscountCode` VARCHAR(30),
@@ -32,6 +34,7 @@ CREATE TABLE `Model` (
   `ModelID` int NOT NULL AUTO_INCREMENT,
   `ModelName` varchar(50),
   `ModelImage` varchar(100),
+  `Category` varchar(50),
   `Size` varchar(2),
   `Infill` varchar(50),
   `Colour` varchar(50),
@@ -40,7 +43,11 @@ CREATE TABLE `Model` (
   FOREIGN KEY (`Colour`) REFERENCES `Colour`(Colour)
 );
 
-INSERT INTO Model (`ModelName`, `ModelImage`, `Size`,`Infill`, `Colour`,`Cost`) VALUES ("Earrings", "", "L", "square", "red", "50");
+INSERT INTO Model (`ModelName`, `ModelImage`, `Size`,`Infill`, `Colour`,`Cost`) VALUES ("Earrings", "erraings", "L", "square", "red", 50);
+INSERT INTO Model (`ModelName`, `ModelImage`, `Size`,`Infill`, `Colour`,`Cost`) VALUES ("Nintendo", "nintendo", "L", "square", "red", 400);
+INSERT INTO Model (`ModelName`, `ModelImage`, `Size`,`Infill`, `Colour`,`Cost`) VALUES ("Headphone stand", "headphone_stand", "L", "square", "red", "50");
+INSERT INTO Model (`ModelName`, `ModelImage`, `Size`,`Infill`, `Colour`,`Cost`) VALUES ("KeyChain", "key_chain", "L", "square", "red", "50");
+
 
 CREATE TABLE `Account` (
   `AccountID` int NOT NULL AUTO_INCREMENT,
@@ -67,28 +74,27 @@ CREATE TABLE `Order` (
   `ShippingInstructions` varchar(100),
   `ShipDate` datetime,
   `ShipAddress` varchar(100),
-  `ShippingType` varchar(50),
-  `DiscountCode` varchar(50),
-  `ifPaymentConfirmed` bool,
-  `TotalCost` float,
+  `ShippingType` varchar(50) null,
+  `DiscountCode` varchar(50) null,
+  `ifPaymentConfirmed` bool default false,
+  `TotalCost` float default 0,
+  `DeliveryCost` float default 0,
+  `Tax` float default 0,
   `Type` varchar(50),
   `CardNumber` varchar(20),
   `ExpiryDate` varchar(5),
   PRIMARY KEY (`OrderID`),
-  FOREIGN KEY (AccountID) REFERENCES Account(AccountID),
-  FOREIGN KEY (ShippingType) REFERENCES Shipping(ShippingType),
-  FOREIGN KEY (DiscountCode) REFERENCES Discount(DiscountCode)
+  FOREIGN KEY (AccountID) REFERENCES Account(AccountID)
 );
 
-INSERT INTO `Order` (AccountId, RecipientName, PhoneNumber, ShippingInstructions, ShipDate, ShipAddress, ShippingType, DiscountCode, ifPaymentConfirmed, TotalCost, `Type`, CardNumber, ExpiryDate)
-VALUES ("1", "User", "1112223344", "leave at door", CURRENT_TIMESTAMP, "10 street", "Van", "", false, 100, "debit", "1111", "03/24");
+INSERT INTO `Order` (AccountId, RecipientName, PhoneNumber, ShippingInstructions, ShipDate, ShipAddress, ShippingType, ifPaymentConfirmed, TotalCost, DeliveryCost, Tax, `Type`, CardNumber, ExpiryDate)
+VALUES ("1", "User", "1112223344", "leave at door", CURRENT_TIMESTAMP, "10 street", "ship", false, 100, 6,13,"debit", "1111", "03/24");
 
 CREATE TABLE `OrderItem` (
  `OrderItemID` int NOT NULL AUTO_INCREMENT,
  `OrderID` int,
  `ModelID` int,
  `Quantity` int,
- `Cost` float,
  PRIMARY KEY (`OrderItemID`),
  FOREIGN KEY (OrderID) REFERENCES `Order`(OrderID),
  FOREIGN KEY (ModelID) REFERENCES `Model`(ModelID)
@@ -96,13 +102,18 @@ CREATE TABLE `OrderItem` (
 
 CREATE TABLE `Cart` (
   `CartID` int NOT NULL AUTO_INCREMENT,
+  `Email` varchar(50) UNIQUE,
   `ModelID` int,
   `Quantity` int,
   `Cost` float,
-  FOREIGN KEY (ModelID) REFERENCES Model(ModelID)
+  PRIMARY KEY (`CartID`),
+  FOREIGN KEY (`ModelID`) REFERENCES Model(ModelID),
+  FOREIGN KEY (`Email`) REFERENCES Account(Email)
 );
 
-INSERT INTO `Cart` (ModelID, Quantity, Cost)VALUES (1, 1, 100);
+-- change modelId before run
+INSERT INTO `Cart` (ModelID, Quantity)VALUES (1, 1);
+INSERT INTO `Cart` (ModelID, Quantity)VALUES (2, 2);
 
 CREATE TABLE `Report` (
   `ReportID` INT NOT NULL AUTO_INCREMENT,
