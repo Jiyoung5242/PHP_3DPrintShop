@@ -1,3 +1,22 @@
+<?php
+include("connection.php");
+session_start();
+
+if(isset($_SESSION['email'])){
+  $email = $_SESSION['email'];
+
+  $result = mysqli_query($conn, "SELECT * FROM account WHERE Email='$email'");
+  $retrieveResult = mysqli_fetch_assoc($result);
+  $firstName = $retrieveResult['FirstName'];
+  $lastName = $retrieveResult['LastName'];
+  $address = $retrieveResult['Address'];
+  $city = $retrieveResult['City'];
+  $postalcode = $retrieveResult['PostalCode'];
+  $phone = $retrieveResult['Phone'];
+}
+
+?>
+
 <!DOCTYPE html>
 <!--
 Template Name: Besloor
@@ -8,22 +27,19 @@ Licence: Free to use under our free template licence terms
 Licence URI: https://www.os-templates.com/template-terms
 -->
 <html lang="">
+
 <!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
-<head>
-<title>3D Print SHOP</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
-<link href="../layout/styles/detail.css" rel="stylesheet" type="text/css" media="all">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-</head>
+<?php include "./header.html" ?>
 <body id="top">
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<?php 
-  include("partial/header.php")
-?>
+<!-- Top Background Image Wrapper -->
+<div class="bgded overlay" style="background-image:url('../images/backgrounds/main_image.jpg');"> 
+  <!-- ################################################################################################ -->
+  <?php include "./topbar.php" ?>
+
+  <?php include "./header_menu.html" ?>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
@@ -41,7 +57,7 @@ Licence URI: https://www.os-templates.com/template-terms
 
       <div class="panel panel-info">
         <div class="panel-heading">
-          <h3 class="panel-title">Sheena Shrestha</h3>
+          <h3 class="panel-title"><?php echo $firstName. " ". $lastName ?></h3>
         </div>
         <div class="panel-body">
           <div class="row">
@@ -51,45 +67,41 @@ Licence URI: https://www.os-templates.com/template-terms
                 <tbody>
                   <tr>
                     <td>Name:</td>
-                    <td>Programming</td>
+                    <td><?php echo $firstName. " ". $lastName ?></td>
                   </tr>
                   <tr>
-                    <td>Hire date:</td>
-                    <td>06/23/2013</td>
+                    <td>Address:</td>
+                    <td><?php echo $address ?></td>
                   </tr>
                   <tr>
-                    <td>Date of Birth</td>
-                    <td>01/24/1988</td>
-                  </tr>
-                  <tr>
-                    <td>Home Address</td>
-                    <td>105 King st. Waterloo, ON</td>
-                  </tr>
-                  <tr>
-                    <td>Email</td>
-                    <td><a href="mailto:info@support.com">info@support.com</a></td>
-                  </tr>
-                    <td>Phone Number</td>
-                    <td>123-4567-890
-                    </td>
-                       
+                    <td>City</td>
+                    <td><?php echo $city ?></td>
                   </tr>
                   <tr>
                     <td>Postal Code</td>
-                    <td>N2T 2S6 </p>
-                    </td> 
+                    <td><?php echo $postalcode ?></td>
+                  </tr>
+                  <tr>
+                    <td>Email</td>
+                    <td><a href="mailto:info@support.com"><?php echo $email ?></a></td>
+                  </tr>
+                    <td>Phone Number</td>
+                    <td><?php echo $phone ?>
+                    </td>
+                       
                   </tr>
                 </tbody>
               </table>
               
-              <a href="#" class="btn btn-orange">Edit Profile</a>
-              <a href="#" class="btn btn-orange">Logout</a>
+              <!--<a href="#" class="btn btn-orange">Edit Profile</a>-->
+              <a href="../pages/logout.php" class="btn btn-orange">Logout</a>
             </div>
           </div>
         </div>
              <div class="panel-footer">
 
-        </div>
+                </div>
+        
       </div>
     </div>
   </div>
@@ -99,7 +111,7 @@ Licence URI: https://www.os-templates.com/template-terms
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<?php include("partial/footer.php") ?>
+<?php include("../pages/partial/footer.php") ?>
 <!-- JAVASCRIPTS -->
 <script src="layout/scripts/jquery.min.js"></script>
 <script src="layout/scripts/jquery.backtotop.js"></script>
