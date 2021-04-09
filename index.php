@@ -29,7 +29,7 @@ Licence URI: https://www.os-templates.com/template-terms
 
 
 <div class="bgded overlay" style="background-image:url('/php_3dprintshop/images/backgrounds/main_image.jpg');"> 
-<?php include "./pages/topbar.html" ?>
+<?php include "./pages/topbar.php" ?>
 <?php include "./pages/header_menu.html" ?>
   <!-- ################################################################################################ -->
   <!-- ################################################################################################ -->

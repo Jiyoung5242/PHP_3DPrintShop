@@ -50,7 +50,7 @@ Licence URI: https://www.os-templates.com/template-terms
 <!-- Top Background Image Wrapper -->
 <div class="bgded overlay" style="background-image:url('../images/backgrounds/main_image.jpg');"> 
   <!-- ################################################################################################ -->
-  <?php include "./topbar.html" ?>
+  <?php include "./topbar.php" ?>
 
   <?php include "./header_menu.html" ?>
   <div class="wrapper row2">
