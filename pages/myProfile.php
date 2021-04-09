@@ -2,7 +2,13 @@
 include("connection.php");
 session_start();
 
-if(isset($_SESSION['email'])){
+$AccountID = $_SESSION['AccountID'];
+
+if(!$AccountID){
+    print "<script language=javascript> alert('You need to Login first'); location.replace('../pages/login.php'); </script>";
+}
+ 
+if(isset($_SESSION['email']) && $AccountID){
   $email = $_SESSION['email'];
 
   $result = mysqli_query($conn, "SELECT * FROM account WHERE Email='$email'");
@@ -16,6 +22,8 @@ if(isset($_SESSION['email'])){
 }
 
 ?>
+
+
 
 <!DOCTYPE html>
 <!--
