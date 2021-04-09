@@ -7,7 +7,7 @@
     if(logged_in()){
       //print "<script language=javascript> alert('You already Login'); location.replace('../index.php'); </script>";
     
-      //header("location:../index.php");
+      header("location:../index.php");
       exit;
     }
       $error="";
@@ -49,8 +49,8 @@
                 setcookie("email",$email, time()+3600);
               }
               echo "OKOKOK";
-              //header("location: ../index.php");
-              print "<script language=javascript> alert('LOGIN SUCCESS'); location.replace('../index.php'); </script>";
+              header("location: ../index.php");
+              //print "<script language=javascript> alert('LOGIN SUCCESS'); location.replace('../index.php'); </script>";
     
             }
 			
