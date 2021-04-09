@@ -5,7 +5,7 @@
     session_start();
 
     if(logged_in()){
-      print "<script language=javascript> alert('You already Login'); location.replace('../index.php'); </script>";
+      //print "<script language=javascript> alert('You already Login'); location.replace('../index.php'); </script>";
     
       //header("location:../index.php");
       exit;
