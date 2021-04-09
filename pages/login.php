@@ -22,7 +22,7 @@
           if(email_exists($email,$conn))
 		      {
 
-            $result = mysqli_query($conn, "SELECT password FROM account WHERE Email='$email'");
+            $result = mysqli_query($conn, "SELECT AccountID, password FROM account WHERE Email='$email'");
 			      $retrievepassword = mysqli_fetch_assoc($result);
             echo "password=".md5($password);
             echo "retrieve password = ".$retrievepassword['password'];
@@ -35,6 +35,7 @@
             }
             else
             {
+              $_SESSION['AccountID'] = $retrievepassword['AccountID'];
               $_SESSION['email'] = $email;
             
               $_SESSION['valid'] = true;

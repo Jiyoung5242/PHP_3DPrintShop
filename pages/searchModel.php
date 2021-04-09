@@ -3,6 +3,7 @@
 <?php
 
 include("connection.php");
+session_start();
 if(isset($_SESSION['email'])){
   echo "SESSION email ==".$_SESSION['email'];
 }
@@ -26,22 +27,25 @@ if(isset($_POST['submit'])){
 }
 
 if(isset($_POST['addCart'])){
-
+  echo "ADD CART";
   if(isset($_SESSION['email'])){
     echo "SESSION email ==".$_SESSION['email'];
-  }
+    
+    $email = $_SESSION['email'];
 
-  if(isset($_POST['modelCheck'])){
+    if(isset($_POST['modelCheck'])){
 
-    foreach ($_POST['modelCheck'] as $key => $value) {
-      $insertSql = "INSERT INTO cart (ModelID, Quantity, Cost) VALUES (".$value.", 1, 0)";
-
-      if ($conn->query($insertSql) === TRUE) {
-        echo "New record created successfully";
-        header("location: myCart.php");
-      } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+      foreach ($_POST['modelCheck'] as $key => $value) {
+        $insertSql = "INSERT INTO 3dprintshop.cart (ModelID, Email, Quantity, Cost) VALUES (".$value.", '".$email."', 1, 0)";
+        echo "INSERT ===".$insertSql;
+        if ($conn->query($insertSql) === TRUE) {
+          echo "New record created successfully";
+          
+        } else {
+          echo "Error: " . $insertSql . "<br>" . $conn->error;
+        }
       }
+      header("location: myCart.php");
     }
   }
     //echo "modelCheck = " .$checkList;
@@ -160,7 +164,6 @@ Licence URI: https://www.os-templates.com/template-terms
                     </div>
                     <div class="col-12 center">                        
                         <a href="#" class="btn btn-outline-orange" onclick="resetForm('myFormId'); return false;" >Reset</a>
-                        <a href="#" class="btn btn-orange">Search</a>
                         <button type="submit" class="btn btn-orange btn-block" name="submit"> Search  </button>
                         
                     </div>
