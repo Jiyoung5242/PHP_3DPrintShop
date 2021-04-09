@@ -1,14 +1,5 @@
 <!DOCTYPE html>
-<!--
-Template Name: Besloor
-Author: <a href="https://www.os-templates.com/">OS Templates</a>
-Author URI: https://www.os-templates.com/
-Copyright: OS-Templates.com
-Licence: Free to use under our free template licence terms
-Licence URI: https://www.os-templates.com/template-terms
--->
 <html lang="">
-<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
 <?php include "./header.html" ?>
 <body id="top">
 <!-- ################################################################################################ -->
@@ -23,15 +14,15 @@ Licence URI: https://www.os-templates.com/template-terms
   <div class="wrapper row2">
   <section class="hoc container clear"> 
     <!-- ################################################################################################ -->
- 
-    <div class="row">
-        <div class="col-sm-12 col-md-10 col-md-offset-1">
-
-            <section>
-                <a href='../pages/myorder.php'>go to list ...</a>
-            </section>
-
-            <h2>Order Detail</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+        <div class="card">
+        <header class="card-header">
+        
+        <a href="../pages/myorder.php" class="float-right btn btn-outline-orange mt-1">Go to List</a>
+            <h4 class="card-title mt-2">Order</h4>
+        </header>
+        <article class="card-body">
 
             <?php
                 $orderId = $_GET['id'];
@@ -43,8 +34,8 @@ Licence URI: https://www.os-templates.com/template-terms
                             <th>Image</th>
                             <th>Name</th>
                             <th>Quantity</th>
-                            <th>Price</th>
-                            <th>Total Price</th>
+                            <th>Price ($)</th>
+                            <th>Total Price ($)</th>
                         </tr>
                     </thead>';
             echo '<tbody>';
@@ -53,6 +44,8 @@ Licence URI: https://www.os-templates.com/template-terms
             // $sql = "select CartID, ModelID, Quantity from Cart where CartID in (1, 2)";
 
             $totalCost = 0;
+            $tax = 0;
+            $deliver = 0;
 
             // 아이템정보를 가져오자
             $conn = mysqli_connect("localhost","root", "","3dprintshop");
@@ -60,6 +53,16 @@ Licence URI: https://www.os-templates.com/template-terms
                 return;
             }
 
+            // oer table
+            $sql = "SELECT * FROM `Order` where OrderID = " . $orderId;
+            $result = mysqli_query($conn, $sql);
+            while ($row = mysqli_fetch_assoc($result)) {
+                $totalCost = $row["TotalCost"];
+                $tax = $row["Tax"];
+                $deliver = $row["DeliveryCost"];
+            }
+
+            // this is orderITem 
             $sql = "SELECT O.ModelID, O.Quantity, M.ModelName, M.ModelImage, M.Size, M.Infill, M.Colour, M.Cost FROM OrderItem as O INNER JOIN Model as M on O.ModelID = M.ModelID where O.OrderID = " . $orderId;
             $result = mysqli_query($conn, $sql);
 
@@ -72,15 +75,28 @@ Licence URI: https://www.os-templates.com/template-terms
                     '<th>' . $row["Quantity"] . '</th>' .
                     '<th>' . $row["Cost"] . '</th>' .
                     '<th>' . $row["Quantity"] * $row["Cost"] . '</th>';
-                $totalCost = $totalCost + $row["Quantity"] * $row["Cost"];
                 echo '</tr>';
             }
 
             echo '</tbody>';
             echo '</table>';
-            echo 'totalCost: ' . $totalCost;
 
-            echo '<br/><br/>';
+            
+            echo '<div class="col form-group">';
+            echo '<label>Tax</label>';
+            echo '<input class="form-control" value="' . $tax ." $". ' " size="22" disabled/>';
+            echo '</div>'; 
+            
+            echo '<div class="col form-group">';
+            echo '<label>Deliver</label>';
+            echo '<input class="form-control" value="' . $deliver ." $". ' " size="22" disabled/>';
+            echo '</div>';
+
+            echo '<div class="col form-group">';
+            echo '<label>Total Cost</label>';
+            echo '<input class="form-control" value="' . ($totalCost + $deliver + $tax) ." $". ' " size="22" disabled/>';
+            echo '</div>';
+
             echo '<br/><br/>';
 
             // 여기는 그냥 order 정보
@@ -92,18 +108,38 @@ Licence URI: https://www.os-templates.com/template-terms
 
             // 아이디로 조회해서 과는 1개 밖에 안나와야 정상
             while ($row2 = mysqli_fetch_assoc($result2)) {
-                echo 'shippingInstructions: ' . $row2["shippinginstructions"];
-                echo '<br/><br/>';
-                echo 'recipientname: ' . $row2["recipientname"];
-                echo '<br/>';
-                echo 'phonenumber: ' . $row2["phonenumber"];
-                echo '<br/><br/>';
-                echo 'shipaddress: ' . $row2["shipaddress"];
-                echo '<br/><br/>';
-                echo 'cardnumber: ' . $row2["cardnumber"];
-                echo '<br/>';
-                echo 'expirydate: ' . $row2["expirydate"];
+                echo '<div class="col form-group">';
+                echo '<label>Recipient name</label>';
+                echo '<input class="form-control" value="' . $row2["recipientname"] .' " size="22" disabled/>';
+                echo '</div>';
+
+                echo '<div class="col form-group">';
+                echo '<label>Phone number</label>';
+                echo '<input class="form-control" value="' . $row2["phonenumber"] .' " size="22" disabled/>';
+                echo '</div>';
+
+                echo '<div class="col form-group">';
+                echo '<label>Ship Address</label>';
+                echo '<input class="form-control" value="' . $row2["shipaddress"] .' " size="22" disabled/>';
+                echo '</div>';
+                
+                echo '<div class="col form-group">';
+                echo '<label>Card Number</label>';
+                echo '<input class="form-control" value="' . $row2["cardnumber"] .' " size="22" disabled/>';
+                echo '</div>';
+
+                echo '<div class="col form-group">';
+                echo '<label>Shipping Instructions</label>';
+                echo '<input class="form-control" value="' . $row2["shippinginstructions"] .' " size="22" disabled/>';
+                echo '</div>';
+
+                echo '<div class="col form-group">';
+                echo '<label>Expiry date</label>';
+                echo '<input class="form-control" value="' . $row2["expirydate"] .' " size="22" disabled/>';
+                echo '</div>';
+    
             }
+
 
 
             ?>
@@ -111,9 +147,15 @@ Licence URI: https://www.os-templates.com/template-terms
         </div>
     </div>
 
+    </article> <!-- card-body end .// -->
+        </div> <!-- card.// -->
+        </div> <!-- col.//-->
+        
+        </div> <!-- row.//-->
     <!-- ################################################################################################ -->
   </section>
 </div>
+
 
 <?php include "./footer.html" ?>
 <!-- JAVASCRIPTS -->

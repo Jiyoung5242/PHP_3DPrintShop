@@ -18,26 +18,23 @@
     $shipAddress = $_POST["shipAddress"];
     $cardNumber = $_POST["cardNumber"];
     $expiryDate = $_POST["expiryDate"];
+    $tax = $_POST["tax"];
+    $deliver = $_POST["deliver"];
     $totalCost = $_POST["totalCost"];
 
     // 데이터 확인용
-    echo $cartIds_string . '<br/>';
-    echo $shippingInstructions . '<br/>';
-    echo $recipientName . '<br/>';
-    echo $phoneNumber . '<br/>';
-    echo $shipAddress . '<br/>';
-    echo $cardNumber . '<br/>';
-    echo $expiryDate . '<br/>';
-    echo $totalCost . '<br/>';
+   
 
     $mysqli = new mysqli("localhost","root","","3dprintshop");
 
+    $AccountId = "1"; // $_SESSION['AccountId']
     // 주문입력
     // AccountId 가져오는 함수로 AccountId를 넣어야 함 // 현재는 임시로 1로 넣음
     // ShippingType 확인필요
     // Discount 코드가 반드시 필요하지 않도록 필드를 null로 바꿔야 함 // 현재는 임시로 freemoney 로 넣음
-    $sql1 = 'INSERT INTO `Order` (AccountId, RecipientName, PhoneNumber, ShippingInstructions, ShipDate, ShipAddress, ShippingType, DiscountCode, ifPaymentConfirmed, TotalCost, `Type`, CardNumber, ExpiryDate)' .
-    'VALUES ("1", "' . $recipientName . '", "' . $phoneNumber . '", "' . $shippingInstructions . '", CURRENT_TIMESTAMP, "' . $shipAddress . '", "shipping..", "freemoney", false, ' . $totalCost . ', "debit", "' . $cardNumber . '", "' . $expiryDate . '")';
+    $sql1 = 'INSERT INTO `Order` (AccountId, RecipientName, PhoneNumber, ShippingInstructions, ShipDate, ShipAddress, ShippingType, DiscountCode, ifPaymentConfirmed, DeliveryCost, Tax, TotalCost, `Type`, CardNumber, ExpiryDate)' .
+    'VALUES ('.$AccountId.', "' . $recipientName . '", "' . $phoneNumber . '", "' . $shippingInstructions . '", CURRENT_TIMESTAMP, "' . $shipAddress . '", "Shipping", "freemoney", 
+    false, ' . $deliver. ',' . $tax. ',' . $totalCost . ', "debit", "' . $cardNumber . '", "' . $expiryDate . '")';
 
     // 주문정보를 넣고
     $message = '';
@@ -74,6 +71,6 @@
     } else {
         $message = "Order Error: " . $sql1 . "<br>" . $mysqli -> error;
     }
-    print "<script language=javascript> alert('$message'); location.replace('../pages/myCart.html'); </script>";
+    print "<script language=javascript> alert('$message'); location.replace('../pages/myOrder.php'); </script>";
     $mysqli -> close();
 ?>

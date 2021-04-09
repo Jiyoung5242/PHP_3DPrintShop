@@ -76,7 +76,7 @@
                                 <h5 class="media-heading">' . $orderQuantity . '</h5>
                             </td>
                             <td class="col-sm-1 col-md-1" style="text-align: center">
-                                <h5 class="media-heading">' . $row["TotalCost"] . '$</h5>
+                                <h5 class="media-heading">' . ($row["TotalCost"] + $row["Tax"] + $row["DeliveryCost"]) . '$</h5>
                             </td>
                             <td class="col-sm-2 col-md-2 text-center"><strong>' . $row["ShipDate"] . '</strong></td>
                             <td class="col-sm-1 col-md-1 text-center"><strong>
@@ -86,7 +86,7 @@
                         </tr>';
                     }
                 } else {
-                    echo "데이터가 없습니다.";
+                    echo "No Data exist.";
                 }
                 mysqli_close($conn); // 디비 접속 닫기
 
