@@ -22,7 +22,7 @@ Licence URI: https://www.os-templates.com/template-terms
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <?php 
-  include("/php_3dprintshop/pages/partial/header.php")
+  include("partial/header.php")
 ?>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
@@ -89,8 +89,7 @@ Licence URI: https://www.os-templates.com/template-terms
         </div>
              <div class="panel-footer">
 
-                </div>
-        
+        </div>
       </div>
     </div>
   </div>
@@ -100,7 +99,7 @@ Licence URI: https://www.os-templates.com/template-terms
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<?php include("/php_3dprintshop/pages/partial/footer.php") ?>
+<?php include("partial/footer.php") ?>
 <!-- JAVASCRIPTS -->
 <script src="layout/scripts/jquery.min.js"></script>
 <script src="layout/scripts/jquery.backtotop.js"></script>
