@@ -179,7 +179,7 @@ Licence URI: https://www.os-templates.com/template-terms
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<div class="wrapper bgded overlay" style="background-image:url('images/demo/backgrounds/01.png');">
+<div class="wrapper bgded overlay" style="background-image:url('images/backgrounds/main_image.jpg');">
   <section id="testimonials" class="hoc container clear"> 
     <!-- ################################################################################################ -->
     <div class="center btmspace-80">
@@ -187,21 +187,18 @@ Licence URI: https://www.os-templates.com/template-terms
     </div>
     <ul class="nospace group btmspace-80">
       <li class="one_third first">
-        <figure class="clear"><img class="circle" src="images/demo/60x60.png" alt="">
           <figcaption>
             <h6 class="heading">Jiyoung Jung</h6>
             <em>Co-Creator</em></figcaption>
         </figure>
       </li>
       <li class="one_third">
-        <figure class="clear"><img class="circle" src="images/demo/60x60.png" alt="">
           <figcaption>
             <h6 class="heading">Jisu Ok</h6>
             <em>Co-Creator</em></figcaption>
         </figure>
       </li>
       <li class="one_third">
-        <figure class="clear"><img class="circle" src="images/demo/60x60.png" alt="">
           <figcaption>
             <h6 class="heading">Henry Karn</h6>
             <em>Co-Creator</em></figcaption>
