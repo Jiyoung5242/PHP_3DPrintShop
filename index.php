@@ -64,10 +64,10 @@ Licence URI: https://www.os-templates.com/template-terms
       <nav id="mainav" class="fl_right">
         <ul class="clear">
           <li><a href="./index.php">Home</a></li>
-          <li><a class="drop" href="./pages/searchModel.php">3D Models</a>
+          <li><a href="./pages/searchModel.php">3D Models</a>
           </li>
 
-          <li><a href="./pages/uploadFile.php">My Files</a> </li>
+          <li><a href="./pages/uploadFile.php">File Upload</a> </li>
 
          <!-- <li><a href="#">Orders</a>
             <ul>
