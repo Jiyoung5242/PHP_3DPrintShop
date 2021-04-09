@@ -43,7 +43,7 @@ CREATE TABLE `Model` (
   FOREIGN KEY (`Colour`) REFERENCES `Colour`(Colour)
 );
 
-INSERT INTO Model (`ModelName`, `ModelImage`, `Size`,`Infill`, `Colour`,`Cost`) VALUES ("Earrings", "erraings", "L", "square", "red", 50);
+INSERT INTO Model (`ModelName`, `ModelImage`, `Size`,`Infill`, `Colour`,`Cost`) VALUES ("Earrings", "earrings", "L", "square", "red", 50);
 INSERT INTO Model (`ModelName`, `ModelImage`, `Size`,`Infill`, `Colour`,`Cost`) VALUES ("Nintendo", "nintendo", "L", "square", "red", 400);
 INSERT INTO Model (`ModelName`, `ModelImage`, `Size`,`Infill`, `Colour`,`Cost`) VALUES ("Headphone stand", "headphone_stand", "L", "square", "red", "50");
 INSERT INTO Model (`ModelName`, `ModelImage`, `Size`,`Infill`, `Colour`,`Cost`) VALUES ("KeyChain", "key_chain", "L", "square", "red", "50");
