@@ -4,6 +4,7 @@
     $AccountID = $_SESSION['AccountID'];
     $allowedExts = array("gif", "jpeg", "jpg", "png");
     $uploads_dir = 'C:\xampp\htdocs\PHP_3DPrintShop\pages\upload';
+    //$uploads_dir = $_SERVER['DOCUMENT_ROOT'] . '/upload'; for server
 
     $message = '';
     if (isset($_FILES)) {
