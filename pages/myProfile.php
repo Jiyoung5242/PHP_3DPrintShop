@@ -100,7 +100,7 @@ Licence URI: https://www.os-templates.com/template-terms
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<?php include("/php_3dprintshop/pages/partial/footer.php")
+<?php include("/php_3dprintshop/pages/partial/footer.php") ?>
 <!-- JAVASCRIPTS -->
 <script src="layout/scripts/jquery.min.js"></script>
 <script src="layout/scripts/jquery.backtotop.js"></script>
