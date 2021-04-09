@@ -2,7 +2,6 @@
 	
     include("connection.php");
     $id = $_GET['cartid'];
-echo "DELETE CART id ===== ".$id;
     $sql = "DELETE FROM cart WHERE CartID = ('$id')";
 
     if ($conn->query($sql) === TRUE) {
@@ -14,6 +13,6 @@ echo "DELETE CART id ===== ".$id;
     }
     mysqli_close($conn); // 디비 접속 닫기
 
-	//header("location: myCart.php");
+	header("location: myCart.php");
 
 ?>
