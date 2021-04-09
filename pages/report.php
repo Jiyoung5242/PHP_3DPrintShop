@@ -2,20 +2,24 @@
 <?php
 
 if(isset($_POST['submit'])){
-$reportType = $_POST["reason"];
-$message = $_POST["message"];
+    $reportType = $_POST["reason"];
+    $message = $_POST["message"];
 
-include("connection.php");
+    include("connection.php");
 
-$sql = "INSERT INTO report (ReportType, Message) VALUES ('".$reportType."', '".$message."')";
-
-if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-    header("location: /php_3dprintshop/index.php");
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
-$conn->close();
+    if($reportType != '' && $message != ''){
+        $sql = "INSERT INTO report (ReportType, Message) VALUES ('".$reportType."', '".$message."')";
+        if ($conn->query($sql) === TRUE) {
+            echo "New record created successfully";
+            header("location: /php_3dprintshop/index.php");
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+        $conn->close();
+    }
+    else {
+        print "<script language=javascript> alert('You need to add text first'); </script>";
+    }
 }
 ?>
 
