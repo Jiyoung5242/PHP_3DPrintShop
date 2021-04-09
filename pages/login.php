@@ -2,10 +2,10 @@
     include("functions.php");
     include("connection.php");
     //ob_start();
+    session_start();
 
     if(logged_in()){
-      ?><a href="#" style="float:right; padding:10px;  background-color:#eee; color:#333; text-decoration:none;">Logout</a>
-      <?php
+      header("location:../index.php");
       exit;
     }
       $error="";
@@ -24,10 +24,14 @@
 
             $result = mysqli_query($conn, "SELECT password FROM account WHERE Email='$email'");
 			      $retrievepassword = mysqli_fetch_assoc($result);
-
-            if (md5($password) !== $retrievepassword['password'])
+            echo "password=".md5($password);
+            echo "retrieve password = ".$retrievepassword['password'];
+            //if (md5($password) !== $retrievepassword['password'])
+            if ($password !== $retrievepassword['password'])
             {
               $error = "Password is incorrect";
+              
+              //alert("Password is incorrect!");
             }
             else
             {
@@ -41,8 +45,8 @@
               {
                 setcookie("email",$email, time()+3600);
               }
-              
-              //header("location: myProfile.php");
+              echo "OKOKOK";
+              //header("location: ../index.php");
             }
 			
 
@@ -50,7 +54,9 @@
             
             echo 'You have entered valid use name and password';
           }else {
-            $msg = 'Wrong username or password';
+            $error = 'Wrong username or password';
+            echo $error;
+            //alert("Wrong username or password");
           }
       }
 
@@ -92,6 +98,8 @@ Licence URI: https://www.os-templates.com/template-terms
     <div class="row justify-content-center">
         <div class="col-md-3">
         <div class="card">
+        <div id="error" style=" <?php  if($error !=""){ ?>  display:block; <?php } ?> "><?php echo $error; ?></div>
+        <div id="error"></div>
         <header class="card-header">
             <h4 class="card-title mt-2">Log In</h4>
         </header>

@@ -2,7 +2,8 @@
 
 	function email_exists($email, $con)
 	{
-		$rsEmails = mysqli_query($con, "SELECT * FROM account WHERE email = '$email'");
+		//echo "email_exists :".$email;
+		$rsEmails = mysqli_query($con, "SELECT * FROM 3dprintshop.account WHERE email = '$email'");
 		if (mysqli_num_rows($rsEmails) == 1){
 			return true;
 		}else{

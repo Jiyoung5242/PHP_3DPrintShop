@@ -2,17 +2,17 @@
 
 <?php
 
-
+include("connection.php");
+if(isset($_SESSION['email'])){
+  echo "SESSION email ==".$_SESSION['email'];
+}
 if(isset($_POST['submit'])){
   $category = $_POST["category"];
   $color = $_POST["color"];
   $size = $_POST["size"];
   $modelname = $_POST["modelname"];
 
-
-  //include("connection.php");
-
-  $conn = mysqli_connect("localhost","root","","3dprintshop");
+  //$conn = mysqli_connect("localhost","root","","3dprintshop");
   if (mysqli_connect_errno()){
       
       echo "error occured while connectiing with DB".mysqli_connect_errno();
@@ -20,18 +20,54 @@ if(isset($_POST['submit'])){
       echo "SUCCESS !!!!!!! ";
   }
 
-
-  session_start();
-
   $sql = "SELECT * FROM 3dprintshop.model WHERE ModelName LIKE '%" . $modelname. "%'";
   echo "sql::::" .$sql;
 
-
-
-
-  
-
 }
+
+if(isset($_POST['addCart'])){
+
+  if(isset($_SESSION['email'])){
+    echo "SESSION email ==".$_SESSION['email'];
+  }
+
+  if(isset($_POST['modelCheck'])){
+
+    foreach ($_POST['modelCheck'] as $key => $value) {
+      $insertSql = "INSERT INTO cart (ModelID, Quantity, Cost) VALUES (".$value.", 1, 0)";
+
+      if ($conn->query($insertSql) === TRUE) {
+        echo "New record created successfully";
+        header("location: myCart.php");
+      } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+      }
+    }
+  }
+    //echo "modelCheck = " .$checkList;
+  /*
+    $sqlimage  = "INSERT INTO cart (ModelID, Quantity, Cost) VALUES ()";
+    echo "sql = ".$sqlimage;
+  
+    $imageresult1 = mysql_query($sqlimage);
+  
+    while($rows=mysql_fetch_array($imageresult1))
+    {
+        $image = $rows['ModelImage'];
+        echo "$image";
+        echo'<img height="300" width="300" src="../../images/model/earrings.jpg">';
+        
+    } 
+  
+  
+  }else{
+  
+    echo "No Model list!!";
+  }
+  
+*/
+}
+
 ?>
 
 <script type="text/javascript">
@@ -137,12 +173,14 @@ Licence URI: https://www.os-templates.com/template-terms
         
         <ul class="nospace group latest">
             <li class="first">
-                
+            <!--<form action="./myCart.php" method="POST" enctype="multipart/form-data" id="addCartForm">-->
+            <form action="./searchModel.php" method="POST" enctype="multipart/form-data" id="addCartForm">
                 <table class="table table-hover">
                     <thead>
                       <tr>
-                        <th><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></th>
+                        <th><input class="form-check-input" type="checkbox" value=""></th>
                         <th scope="col">#</th>
+                        <th scope="col">Image</th>
                         <th scope="col">Model Name</th>
                         <th scope="col">Colour</th>
                         <th scope="col">Size</th>
@@ -159,12 +197,13 @@ Licence URI: https://www.os-templates.com/template-terms
                       while($row = mysql_fetch_array($result)) {
                     ?>
                       <tr>
-                        <td><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></td>
+                        <td><input class="form-check-input" type="checkbox" value="<?php echo $row['ModelID'] ?>" name="modelCheck[]"></td>
                         <th scope="row"><?php echo $row['ModelID'] ?></th>
+                        <td><img id="imageSize" src="../images/model/<?php echo $row['ModelImage'] ?>.jpg"></td>
                         <td><?php echo $row['ModelName'] ?></td>
-                        <td>White</td>
-                        <td>Middle</td>
-                        <td>$20</td>
+                        <td><?php echo $row['Colour'] ?></td>
+                        <td><?php echo $row['Size'] ?></td>
+                        <td><?php echo $row['Cost'] ?></td>
                       </tr>
                       <?php 
                         }
@@ -175,15 +214,14 @@ Licence URI: https://www.os-templates.com/template-terms
                     </tbody>
                   </table>
                   <div class="col-12 center">                        
-                    <a href="./myCart.html" class="btn btn-orange my-2">Add Cart</a>
+                  <button type="submit" class="btn btn-orange btn-block" name="addCart"> Add Cart  </button>
                 </div>
             </li>
+          </from>
         </ul>
         
      </div> 
     </div>
-    <div class="col-md-2"></div>  
-    <footer class="center"><a class="btn" href="#">Bibendum eget hendrerit</a></footer>
     <!-- ################################################################################################ -->
   </section>
 </div>
