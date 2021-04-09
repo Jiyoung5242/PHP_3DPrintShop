@@ -31,18 +31,18 @@
 
           <li><a href="/php_3dprintshop/pages/uploadFile.php">My Files</a> </li>
 
-          <li><a href="#">Orders</a>
+          <!--<li><a href="#">Orders</a>
             <ul>
               <li><a href="/php_3dprintshop/pages/order.php">order</a></li>
               <li><a href="/php_3dprintshop/pages/orderDetail.php">Order Detail</a></li>
             </ul>
-          </li>
+          </li>-->
 
 
           <li><a href="/php_3dprintshop/pages/myProfile.php">My Account</a>
             <ul>
               <li><a href="/php_3dprintshop/pages/myCart.php">My Cart</a></li>
-              <li><a href="/php_3dprintshop/pages/myFiles.php">My Files</a></li>
+              <li><a href="/php_3dprintshop/pages/uploadFileList.php">My Files</a></li>
               <li><a href="/php_3dprintshop/pages/myOrder.php">My Orders</a></li>
             </ul>
           </li>
