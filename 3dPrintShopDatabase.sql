@@ -116,12 +116,8 @@ INSERT INTO `Cart` (ModelID, Quantity)VALUES (1, 1);
 INSERT INTO `Cart` (ModelID, Quantity)VALUES (2, 2);
 
 CREATE TABLE `Report` (
-  `ReportID` INT NOT NULL AUTO_INCREMENT,
-  `AccountID` int,
   `ReportType` varchar(50),
-  `Message` varchar(150),
-  PRIMARY KEY (`ReportID`),
-  FOREIGN KEY (`AccountID`) REFERENCES Account(AccountID)
+  `Message` varchar(150)
 );
 
 -- File Upload
