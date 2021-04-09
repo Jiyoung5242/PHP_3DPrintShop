@@ -13,21 +13,31 @@ $last_name = $_POST["last_name"];
 $postalcode = $_POST["postalcode"];
 $password = $_POST["password"];
 
+if($phone != "" &&
+  $email != "" && 
+  $address != "" && 
+  $city !="" &&
+  $first_name !="" &&
+  $last_name !="" &&
+  $postalcode !="" &&
+  $password !="") {
+    include("connection.php");
 
-include("connection.php");
+    $sql = "INSERT INTO account (Email, Address, City, FirstName, LastName, PostalCode, Phone, password, isAdmin)
+    VALUES ('".$email."', '".$address."', '".$city."', '".$first_name."', '".$last_name."', '".$postalcode."', '".$phone."', '".$password."', 0)";
 
-$sql = "INSERT INTO account (Email, Address, City, FirstName, LastName, PostalCode, Phone, password, isAdmin)
-VALUES ('".$email."', '".$address."', '".$city."', '".$first_name."', '".$last_name."', '".$postalcode."', '".$phone."', '".$password."', 0)";
+    if ($conn->query($sql) === TRUE) {
+      echo "New record created successfully";
+      header("location: login.php");
+    } else {
+      echo "Error: " . $sql . "<br>" . $conn->error;
+    }
 
-if ($conn->query($sql) === TRUE) {
-  echo "New record created successfully";
-  header("location: login.php");
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
-$conn->close();
-
+    $conn->close();
+  }
+  else {
+    print "<script language=javascript> alert('You need to add text to all textboxes first'); </script>";
+  }
 }
 ?>
 
