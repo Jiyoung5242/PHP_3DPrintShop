@@ -5,10 +5,11 @@
       <h6 class="heading">3D Print Shop</h6>
       <nav>
         <ul class="nospace inline pushright uppercase">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="/php_3dprintshop/index.php">Home</a></li>
           <li><a href="#">About</a></li>
           <li><a href="#">Contact</a></li>
           <li><a href="#">Privacy</a></li>
+          <li><a href="/php_3dprintshop/pages/report.php">Report</a></li>
         </ul>
       </nav>
     </div>
