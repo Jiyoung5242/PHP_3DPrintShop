@@ -134,7 +134,7 @@ Licence URI: https://www.os-templates.com/template-terms
               <form action="<?php $_PHP_SELF ?>" method="POST" enctype="multipart/form-data" id="myFormId">
                 <div class="row g-3">
                     <div class="col-sm-5">
-                        <label for="Category" class="form-label">Country</label>
+                        <label for="Category" class="form-label">Category</label>
                         <select class="form-select" id="category" name="category">
                             <option value="*">Choose..</option>
                             <option value="Beauty">Beauty</option>
