@@ -1,4 +1,4 @@
-<div class="bgded overlay" style="background-image:url('../images/backgrounds/main_image.jpg');"> 
+<div class="bgded overlay" style="background-image:url('/php_3dprintshop/images/backgrounds/main_image.jpg');"> 
   <div class="wrapper row0">
     <div id="topbar" class="hoc clear"> 
       <div class="fl_left"> 
@@ -10,8 +10,8 @@
       <div class="fl_right"> 
         <ul class="nospace">
           <li><a href="/php_3dprintshop/index.php"><i class="fas fa-home"></i></a></li>
-          <li><a href="#" title="Help Centre"><i class="fas fa-life-ring"></i></a></li>
-          <li><a href="#" title="Login"><i class="fas fa-sign-in-alt"></i></a></li>
+          <li><a href="/php_3dprintshop/pages/logout.php" title="Logout"><i class="fas fa-sign-out-alt"></i></a></li>
+          <li><a href="/php_3dprintshop/pages/login.php" title="Login"><i class="fas fa-sign-in-alt"></i></a></li>
           <li><a href="/php_3dprintshop/pages/register.php" title="Sign Up"><i class="fas fa-edit"></i></a></li>
         </ul>
       </div>

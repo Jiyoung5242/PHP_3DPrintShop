@@ -11,7 +11,7 @@ $sql = "INSERT INTO report (ReportType, Message) VALUES ('".$reportType."', '".$
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
-    header("location: thankyou.html");
+    header("location: /php_3dprintshop/index.php");
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
@@ -63,7 +63,7 @@ Licence URI: https://www.os-templates.com/template-terms
                 <article class="card-body">
                     <form method="post" action="<?php $_PHP_SELF ?>" method="POST" enctype="multipart/form-data">
                         <legend>Report</legend>
-                        <label>All reports are anonymous. For problems with deliveries or quality of products, please email us at henrykarnwork@gmail.com.</label> <br>
+                        <label>All reports are anonymous. For problems with deliveries or quality of products, please email us at <a href="mailto:3dprintshop@gmail.com">3dprintshop@gmail.com</a>.</label> <br>
                         <label for="subject">Subject:<strong title="Required" class="req"></strong>
                         <input id="reason" name="reason" type="text" size="30">
                         </label><br>
